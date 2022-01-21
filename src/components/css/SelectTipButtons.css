@@ -1,0 +1,33 @@
+
+.select-tip-buttons__container h3 {
+  color: var(--dark-grayish-cyan-1);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.select-tip-buttons__container div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px 40px;
+  gap: 15px;
+}
+.select-tip-buttons__container div input {
+  outline: none;
+  width: 100%;
+  border: solid 2px #f3f8fb;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: right;
+  color: var(--dark-grayish-cyan-2);
+  background-color: #f3f8fb;
+}
+.select-tip-buttons__container div input:focus {
+  border: solid 2px var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+.select-tip-buttons__container div input::placeholder {
+  text-align: center;
+  font-size: 2rem;
+}

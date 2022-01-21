@@ -4,8 +4,8 @@
   --strong-cyan: hsl(172, 67%, 45%);
   /* neutral */
   --very-dark-cyan: hsl(183, 100%, 15%);
-  --dark-grayish-cyan: hsl(186, 14%, 43%);
-  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --dark-grayish-cyan-1: hsl(186, 14%, 43%);
+  --dark-grayish-cyan-2: hsl(184, 14%, 56%);
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --lightness-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
@@ -28,9 +28,26 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* titulo de la app */
 .App{
   text-align: center;
+  padding: 0 20px;
 }
 .App h1 {
-  
+  text-transform: uppercase;
+  color: var(--very-dark-cyan);
+  font-size: 2.5rem;
+  letter-spacing: 15px;
+  margin-bottom: 70px;
+}
+.App .grid__container {
+  display: grid;
+  grid-template-columns: 375px 375px;
+  grid-template-rows: 400px;
+  gap: 35px;
+  background-color: var(--white);
+  text-align: left;
+  border-radius: 20px;
+  padding: 30px;
 }

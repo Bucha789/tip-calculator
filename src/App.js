@@ -1,6 +1,6 @@
-import './App.css';
 import InputContainer from './components/InputContainer';
 import ResultsContainer from './components/ResultsContainer';
+import './App.css';
 
 function App() {
   return (

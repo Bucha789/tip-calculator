@@ -8,7 +8,7 @@ export default function ResultsDisplay({typeDisplay, amount}) {
         <p>/ person</p>
       </div>
       <div className='result-display__amount'>
-        <span>$ {amount}</span>
+        <span>${amount}</span>
       </div>
     </div>
   )
