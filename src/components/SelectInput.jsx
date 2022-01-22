@@ -11,7 +11,10 @@ export default function SelectInput({ type, name, value, handleInputChange }) {
         }
       </div>
       <div className="input__container">
-        <i className="fas fa-dollar-sign"></i>
+        {
+          type == 'Bill' ? 
+          <i className="fas fa-dollar-sign"></i> : <i class="fas fa-user"></i>
+        }
         <input
           type="number"
           name={name}
