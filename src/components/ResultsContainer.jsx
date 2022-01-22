@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ResultsDisplay from "./ResultsDisplay";
 
 import "./css/ResultsContainer.css";
-import { useEffect } from "react/cjs/react.development";
 
 export default function ResultsContainer({ tip, total, resetValues }) {
   useEffect(() => {
