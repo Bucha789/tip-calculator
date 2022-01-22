@@ -1,16 +1,24 @@
-import React from 'react'
-import ResultsDisplay from './ResultsDisplay'
+import React from "react";
+import ResultsDisplay from "./ResultsDisplay";
 
-import './css/ResultsContainer.css';
+import "./css/ResultsContainer.css";
+import { useEffect } from "react/cjs/react.development";
 
-export default function ResultsContainer({tip, total}) {
+export default function ResultsContainer({ tip, total, resetValues }) {
+  useEffect(() => {
+    if (total === 0 || tip === 0) {
+      document.querySelector('.button__reset').setAttribute('disabled', '')
+    } else {
+      document.querySelector('.button__reset').removeAttribute('disabled')
+    }
+  }, [tip, total])
   return (
-    <div className='results__container'>
+    <div className="results__container">
       <div>
-      <ResultsDisplay typeDisplay='Tip Amount' amount={tip.toFixed(2)}/>
-      <ResultsDisplay typeDisplay='Total' amount={total.toFixed(2)}/>
+        <ResultsDisplay typeDisplay="Tip Amount" amount={tip.toFixed(2)} />
+        <ResultsDisplay typeDisplay="Total" amount={total.toFixed(2)} />
       </div>
-      <button className='button__reset'>RESET</button>
+      <button onClick={resetValues} className="button__reset">RESET</button>
     </div>
-  )
+  );
 }

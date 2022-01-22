@@ -45,3 +45,6 @@
 .button__reset:hover {
   background-color: var(--light-grayish-cyan);
 }
+.button__reset:disabled {
+  opacity: .2;
+}

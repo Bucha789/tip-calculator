@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import "./css/SelectTipButtons.css";
 import "./css/TipButton.css";
 
-export default function SelectTipButtons({ name, custom, handleInputChange, handlePercentForButton}) {
-  const [buttonActive, setButtonActive] = useState("");
-  const buttonValues = ["5%", "10%", "15%", "25%", "50%"];
+export default function SelectTipButtons({ name, value, valuePref, handleInputChange, handlePercentForButton}) {
+  const [buttonActive, setButtonActive] = useState('');
+  const buttonValues = ["5", "10", "15", "25", "50"];
 
   const handleClick = (percent) => {
     setButtonActive(percent);
     handlePercentForButton(percent);
   };
+  useEffect(() => {
+    if (value === '') {
+      setButtonActive(valuePref)
+    }
+  }, [value])
   return (
     <div className="select-tip-buttons__container">
       <h3>Select Tip %</h3>
@@ -23,14 +29,16 @@ export default function SelectTipButtons({ name, custom, handleInputChange, hand
                 buttonActive === item ? `tip__button active` : "tip__button"
               }
             >
-              {item}
+              {item}%
             </button>
           );
         })}
         <input
+          onClick={() => setButtonActive('')}
           type="number"
+          min={0}
           name={name}
-          value={custom}
+          value={value}
           onChange={handleInputChange}
           placeholder="Custom"
         />

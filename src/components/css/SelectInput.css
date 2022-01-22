@@ -5,6 +5,13 @@
   color: var(--dark-grayish-cyan-1);
   font-size: 1.4rem;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select-input__title span {
+  font-weight: 700;
+  color:#b57f6f;
 }
 .input__container {
   position: relative;
@@ -29,7 +36,9 @@
   color: var(--dark-grayish-cyan-2);
   background-color: #f3f8fb;
 }
-
+.input__container .danger:focus {
+  border: 2px solid #b57f6f;
+}
 .input__container input:focus {
   border: solid 2px var(--strong-cyan);
   color: var(--very-dark-cyan);

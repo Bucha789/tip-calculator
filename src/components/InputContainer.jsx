@@ -2,7 +2,7 @@ import React from "react";
 import SelectInput from "./SelectInput";
 import SelectTipButtons from "./SelectTipButtons";
 import "./css/InputContainer.css";
-export default function InputContainer({ bill, people, custom, handleInputChange, handlePercentForButton }) {
+export default function InputContainer({ bill, people, customPercent, percent, handleInputChange, handlePercentForButton }) {
   return (
     <div className="main-inputs__container">
       <SelectInput
@@ -12,7 +12,8 @@ export default function InputContainer({ bill, people, custom, handleInputChange
         handleInputChange={handleInputChange}
       />
       <SelectTipButtons
-        value={custom}
+        value={customPercent}
+        valuePref={percent}
         handlePercentForButton={handlePercentForButton}
         handleInputChange={handleInputChange}
         name="customPercent"

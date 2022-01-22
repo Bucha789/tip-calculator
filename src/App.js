@@ -1,38 +1,33 @@
-import InputContainer from './components/InputContainer';
-import ResultsContainer from './components/ResultsContainer';
-import './App.css';
-import { useEffect, useState } from 'react';
+import InputContainer from "./components/InputContainer";
+import ResultsContainer from "./components/ResultsContainer";
+import "./App.css";
+import { useEffect, useState } from "react";
+import { getTotalAmount } from "./helpers/getTotalAmount";
 
-const getTotalAmount = ({bill, people, percent, customPercent}) => {
-  percent = customPercent === '' ? Number(percent) : Number(customPercent);
-  const totalForPerson = (Number(bill) + (Number(bill) * (percent / 100))) / people;
-  const tipForPerson = (Number(bill) * (percent / 100) / people)
 
-  return {
-    totalForPerson,
-    tipForPerson
-  }
-}
-function App() {
-  const [amountValues, setAmountValues] = useState({
+const initialState = {
     bill: "",
     people: "",
     percent: "",
     customPercent: "",
-  });
+};
+
+
+function App() {
+  const [amountValues, setAmountValues] = useState(initialState);
   const [finalAmountValues, setFinalAmountValues] = useState({
     tipPerson: 0,
     totalPerson: 0,
-  })
-  const {tipPerson, totalPerson} = finalAmountValues;
+  });
+  const { tipPerson, totalPerson } = finalAmountValues;
   useEffect(() => {
     const newTotals = getTotalAmount(amountValues);
     setFinalAmountValues({
       tipPerson: newTotals.tipForPerson,
       totalPerson: newTotals.totalForPerson,
-    })
-  },[amountValues])
-  
+    });
+  }, [amountValues]);
+
   const handleInputChange = ({ target }) => {
     setAmountValues({
       ...amountValues,
@@ -45,12 +40,21 @@ function App() {
       percent,
     });
   };
+  const resetValues = () => {
+    setAmountValues(initialState);
+  }
   return (
     <div className="App">
-      <h1>Spli<br></br>tter</h1>
+      <h1>
+        Spli<br></br>tter
+      </h1>
       <div className="grid__container">
-      <InputContainer {...amountValues} handleInputChange={handleInputChange} handlePercentForButton={handlePercentForButton} />
-      <ResultsContainer tip={tipPerson} total={totalPerson} />
+        <InputContainer
+          {...amountValues}
+          handleInputChange={handleInputChange}
+          handlePercentForButton={handlePercentForButton}
+        />
+        <ResultsContainer resetValues={resetValues} tip={tipPerson} total={totalPerson} />
       </div>
     </div>
   );
